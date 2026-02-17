@@ -64,3 +64,29 @@ Common Mistake
 CRUD model:
 public bool IsOffline { get; set; }
 This allows anyone to mark device online/offline incorrectly.
+
+
+
+
+
+Use Case / Command Handler (CQRS Style)
+Simple Explanation
+Instead of controllers directly updating database, we create a use case class that represents a business action.
+Controller triggers intention → handler executes business logic.
+
+Why Not Put Logic in Controller?
+Controllers are delivery mechanism (HTTP).
+Business rules should be reusable from background jobs, queues, or other APIs.
+
+Flow
+Controller → Command → Handler → Domain → Repository
+
+Interview Explanation
+We separate request handling from business execution using command handlers. This keeps the application independent of transport layer and improves testability and reuse.
+
+Example
+RegisterDeviceHandler creates device entity and persists it through repository instead of controller directly calling DB.
+
+Common Mistake
+Fat Controllers:
+Controller contains validation, DB calls, business logic, and response mapping.
