@@ -33,3 +33,8 @@ Dependency Rule
 
 Interview Explanation (30 sec answer)
   -Clean Architecture keeps business logic independent from frameworks so database, UI, or cloud can change without affecting core rules. It improves    testability, maintainability, and long-term scalability.
+
+# Interviewer asks:
+  -Why private setters?
+# You answer:
+  -To protect business invariants. Device state should change only through domain behavior methods like ReceiveHeartbeat(), not random external modification.
