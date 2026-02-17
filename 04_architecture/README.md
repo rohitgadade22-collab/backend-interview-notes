@@ -38,3 +38,29 @@ Interview Explanation (30 sec answer)
   -Why private setters?
 # You answer:
   -To protect business invariants. Device state should change only through domain behavior methods like ReceiveHeartbeat(), not random external modification.
+
+
+
+
+Domain Entity vs Database Table
+Simple Explanation
+A domain entity represents business behavior, not just stored data.
+It contains rules and actions that protect system correctness.
+
+Example
+Device status should not be manually set.
+It must be calculated from last heartbeat time.
+So instead of storing IsOffline column, we calculate:
+IsOffline = Now - LastHeartbeat > threshold
+
+Interview Explanation
+In good design, entities encapsulate behavior and protect invariants.
+We don’t allow external layers to directly modify state because it can break business rules. Instead, we expose methods like ReceiveHeartbeat().
+
+Why Private Setters?
+Prevents invalid state changes from outside layers like controllers or repositories.
+
+Common Mistake
+CRUD model:
+public bool IsOffline { get; set; }
+This allows anyone to mark device online/offline incorrectly.
