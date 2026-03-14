@@ -17,7 +17,19 @@
   -npm install npx tailwindcss init -p
 
 #Open Code in VS code
-  Easy to Maintain
+  -Easy to Maintain
+  -Why VS Code:
+  -Best support for React
+  -Large extension ecosystem
+  -Built-in terminal
+  -Git integration
+  -Fast and lightweight
+
+#Recommended Extensions:
+  -ES7 React Snippets
+  -Prettier
+  -Auto Rename Tag
+  -Path Intellisense
 
 #Create Folder structure
   src
