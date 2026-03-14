@@ -38,7 +38,7 @@
   -Auto Rename Tag
   -Path Intellisense
 
-#Create Folder structure
+# Create Folder structure
   src
  |
  |-- api
@@ -50,3 +50,16 @@
  |-- services
  |
  |-- context
+
+# rafce command
+  r  → react
+af → arrow function
+c  → component
+e  → export
+
+| Snippet     | What it Creates                      |
+| ----------- | ------------------------------------ |
+| `rafce`     | Arrow function component with export |
+| `rfce`      | Normal function component            |
+| `useState`  | React state hook                     |
+| `useEffect` | React effect hook                    |
