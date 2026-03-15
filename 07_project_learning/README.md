@@ -63,3 +63,8 @@ e  → export
 | `rfce`      | Normal function component            |
 | `useState`  | React state hook                     |
 | `useEffect` | React effect hook                    |
+
+
+#For styling
+  -npm install -D tailwindcss postcss autoprefixer
+  -npx tailwindcss init -p
