@@ -1,114 +1,538 @@
-# Backend Interview Preparation – Rohit Gadade
-
-This document tracks the preparation steps, project architecture, and learning goals for a 2–3 month backend engineer switch plan.
-
----
+# .NET Developer Complete Roadmap (Basics + Modern .NET + Azure + Interview Prep)
 
 ## Goal
-Become confident in:
-- Backend architecture thinking
-- System design discussions
-- .NET internals
-- Database engineering
-- Azure usage (practical)
 
-Build one production‑grade project:
-**Smart Monitoring System**
+Structured 6-month roadmap for:
 
----
+- Strong basics revision
+- Modern .NET development
+- ASP.NET Core / Web API
+- SQL + Database design
+- Azure Cloud
+- System Design
+- Interview Preparation
+- Real project building
 
-## Project Architecture (Clean Architecture)
+## Available Time
 
-Layers:
+- Monday to Saturday = 1 Hour Daily
+- Sunday = 4 Hours
 
-### Domain
-Contains pure business rules.
-No dependency on database, frameworks, API, or cloud.
+**Total = 10 Hours / Week**
 
-Example:
-Device becomes offline if heartbeat not received for 2 minutes.
-
-### Application
-Contains use‑cases (actions system can perform).
-Coordinates domain and defines interfaces.
-
-Example:
-RegisterDevice, SendHeartbeat, GenerateAlert
-
-### Infrastructure
-Implements database, cache, queues, external services.
-
-Example:
-SQL Server, Redis, RabbitMQ
-
-### API
-Receives HTTP requests and calls application layer.
-No business logic.
-
-Dependency Rule:
-API → Application → Domain
-Infrastructure → Application → Domain
-Domain depends on nothing.
+**6 Months = 240+ Focused Learning Hours**
 
 ---
 
-## Implemented So Far
+# Daily Study Pattern
 
-### Domain Entity
-Device entity with behavior:
-- ReceiveHeartbeat()
-- IsOffline(threshold)
+## Monday to Saturday (1 Hour)
 
-Concept learned:
-Entities protect invariants using private setters.
+- 20 min Theory
+- 30 min Practice Coding
+- 10 min Notes / Revision
 
-### Repository Contract
-IDeviceRepository defined in Application.
-Infrastructure implements it using EF Core.
+## Sunday (4 Hours)
 
-Concept learned:
-Dependency Inversion Principle.
-
-### Use Case
-RegisterDeviceCommand + Handler
-
-Flow:
-Controller → Command → Handler → Domain → Repository → Database
-
-Concept learned:
-CQRS style and vertical slice architecture.
+- 2 hr Deep Learning
+- 1 hr Project Work
+- 1 hr Interview Questions
 
 ---
 
-## Database Setup
-Using SQL Server via EF Core DbContext.
-Tables created via migrations.
+# Month 1 - C# Basics Revision
+
+## Week 1
+
+### Learn
+
+- CLR
+- JIT Compiler
+- .NET Framework vs .NET Core vs .NET 8
+- Data Types
+- Value Type vs Reference Type
+- Boxing / Unboxing
+
+### Practice
+
+- Programs using int, string, object
+- Memory examples
+
+### Interview Questions
+
+- What is CLR?
+- Difference between stack and heap?
+- What is boxing?
 
 ---
 
-## Study Plan
+## Week 2
 
-### Phase 1 (Weeks 1–3)
-C# internals + .NET architecture + database engineering
+### Learn
 
-### Phase 2 (Weeks 4–7)
-Caching, Azure, queues, background jobs, real‑time systems
+- OOP Concepts
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Abstraction
 
-### Phase 3 (Weeks 8–10)
-System design + DSA + mock interviews
+### Practice
+
+Create:
+
+- Employee class
+- Manager class
+- Method overriding examples
+
+### Interview Questions
+
+- Explain OOP with examples
+- Difference between overloading and overriding?
 
 ---
 
-## Daily Study Method
-3 hours daily:
-1 hr concepts
-1 hr coding
-1 hr interview explanation practice
+## Week 3
 
-Sunday:
-Revision + system design discussion
+### Learn
+
+- Class vs Struct
+- Interface vs Abstract Class
+- Access Modifiers
+- Static Keyword
+- Constructor types
+
+### Practice
+
+Build mini Bank Account project
+
+### Interview Questions
+
+- Interface vs Abstract Class?
+- Why use static?
 
 ---
 
-## Objective of Notes
-These notes are written in explanation format so answers can be spoken confidently in interviews rather than memorized.
+## Week 4
+
+### Learn
+
+- Arrays
+- List<T>
+- Dictionary<TKey, TValue>
+- Stack
+- Queue
+
+### Practice
+
+Solve 10 array problems
+
+### Interview Questions
+
+- List vs Array?
+- Dictionary internal working?
+
+---
+
+# Month 2 - Advanced C#
+
+## Week 5
+
+### Learn
+
+- Exception Handling
+- try-catch-finally
+- throw vs throw ex
+- Custom Exceptions
+
+### Practice
+
+ATM withdrawal system
+
+---
+
+## Week 6
+
+### Learn
+
+- Delegates
+- Func
+- Action
+- Predicate
+- Events
+
+### Practice
+
+Notification system
+
+---
+
+## Week 7
+
+### Learn
+
+- LINQ Basics
+- Where
+- Select
+- OrderBy
+- GroupBy
+- Join
+
+### Practice
+
+Employee list filtering
+
+---
+
+## Week 8
+
+### Learn
+
+- async / await
+- Task
+- Thread vs Task
+- Deadlock basics
+- CancellationToken
+
+### Practice
+
+Async API call demo
+
+---
+
+# Month 3 - SQL + Database
+
+## Week 9
+
+### Learn
+
+- Database Design
+- Primary Key
+- Foreign Key
+- Normalization
+
+### Practice
+
+Design Employee Management DB
+
+---
+
+## Week 10
+
+### Learn
+
+- Inner Join
+- Left Join
+- Right Join
+- Subquery
+- CTE
+
+### Practice
+
+10 SQL queries
+
+---
+
+## Week 11
+
+### Learn
+
+- Indexes
+- Clustered Index
+- Non Clustered Index
+- Stored Procedures
+- Transactions
+
+### Practice
+
+Write procedures
+
+---
+
+## Week 12
+
+### Learn
+
+- Deadlocks
+- Query Optimization
+- Execution Plan basics
+
+### Practice
+
+Optimize slow queries
+
+---
+
+# Month 4 - ASP.NET Core
+
+## Week 13
+
+### Learn
+
+- ASP.NET Core project structure
+- Controllers
+- Routing
+- appsettings.json
+
+### Practice
+
+Create Web API
+
+---
+
+## Week 14
+
+### Learn
+
+- Dependency Injection
+- Middleware
+- Request Pipeline
+
+### Practice
+
+Custom middleware
+
+---
+
+## Week 15
+
+### Learn
+
+- JWT Authentication
+- Authorization
+- Role-based access
+
+### Practice
+
+Login API with JWT
+
+---
+
+## Week 16
+
+### Learn
+
+- Swagger
+- Logging
+- Global Exception Handling
+- Validation
+
+### Practice
+
+Production-ready API
+
+---
+
+# Month 5 - Entity Framework + Azure
+
+## Week 17
+
+### Learn
+
+- EF Core
+- DbContext
+- Code First
+- Migrations
+
+### Practice
+
+CRUD API
+
+---
+
+## Week 18
+
+### Learn
+
+- Repository Pattern
+- Unit of Work
+- Clean Architecture basics
+
+---
+
+## Week 19
+
+### Learn Azure
+
+- Azure Portal
+- App Service
+- Azure SQL
+
+### Practice
+
+Deploy API
+
+---
+
+## Week 20
+
+### Learn Azure
+
+- Blob Storage
+- Azure Functions
+- Key Vault
+
+### Practice
+
+File upload API
+
+---
+
+# Month 6 - Architecture + Interview Prep
+
+## Week 21
+
+### Learn
+
+- SOLID Principles deep dive
+- Design Patterns
+
+Patterns:
+
+- Singleton
+- Factory
+- Strategy
+- Repository
+
+---
+
+## Week 22
+
+### Learn
+
+- Monolith vs Microservices
+- Redis basics
+- Caching
+- Message Queue basics
+
+---
+
+## Week 23
+
+### Learn
+
+- Docker Basics
+- CI/CD
+- GitHub Actions
+- Azure DevOps basics
+
+---
+
+## Week 24
+
+### Final Interview Preparation
+
+- Resume Update
+- GitHub cleanup
+- Mock interviews
+- HR questions
+- Coding round practice
+
+---
+
+# Project To Build During Roadmap
+
+# Device Monitoring System
+
+## Backend
+
+- ASP.NET Core Web API
+- JWT Authentication
+- SQL Server / PostgreSQL
+
+## Cloud
+
+- Azure App Service
+- Azure SQL
+- Blob Storage
+
+## Frontend (Optional)
+
+- React
+
+---
+
+# Weekly Coding Practice Websites
+
+## Coding
+
+- LeetCode
+- HackerRank
+- CodeWars
+
+## SQL
+
+- SQLBolt
+- LeetCode SQL
+- HackerRank SQL
+
+---
+
+# Weekly Interview Practice
+
+## C#
+
+- Interface vs Abstract Class
+- String immutable?
+- Delegates vs Events
+- async await flow
+
+## SQL
+
+- Clustered vs Non Clustered
+- Deadlock
+- Index usage
+
+## ASP.NET Core
+
+- Middleware lifecycle
+- Dependency Injection lifetime
+
+## Azure
+
+- App Service vs VM
+- Blob Storage use cases
+
+---
+
+# Important Advice
+
+Since you already have experience:
+
+Focus more on:
+
+- C# internals
+- Modern ASP.NET Core
+- SQL tuning
+- Azure deployment
+- Clean architecture
+- Interview communication
+
+---
+
+# Expected Outcome After 6 Months
+
+## Roles
+
+- .NET Core Developer
+- Full Stack .NET Developer
+- Azure Developer
+- Senior .NET Developer
+
+---
+
+# Day 1 Start
+
+- What is CLR?
+- .NET versions
+- Value vs Reference Types
+- Practice 5 programs
+
+---
+
+# Success Rule
+
+Stay consistent for 6 months.
+
+Even 1 focused hour daily can change career direction.
+
+---
